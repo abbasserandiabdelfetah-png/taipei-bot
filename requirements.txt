@@ -1,0 +1,4 @@
+anthropic
+python-dotenv
+Pillow
+python-telegram-bot[all]
