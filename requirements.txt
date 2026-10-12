@@ -1,5 +1,1 @@
-anthropic
-python-dotenv
-Pillow
-python-telegram-bot[all]
-flask
+python-telegram-bot==20.7
