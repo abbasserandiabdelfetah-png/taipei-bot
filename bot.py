@@ -1,8 +1,27 @@
+import threading
+from http.server import HTTPServer, BaseHTTPRequestHandler
 import os
 from telegram import Update
 from telegram.ext import Application, CommandHandler, MessageHandler, filters, ContextTypes
 
+class Handler(BaseHTTPRequestHandler):
+    def do_GET(self):
+        self.send_response(200)
+        self.end_headers()
+        self.wfile.write(b"RCSS V3 Abbas Bot Live")
+
+def run_web():
+    port = int(os.environ.get("PORT", 10000))
+    server = HTTPServer(("0.0.0.0", port), Handler)
+    server.serve_forever()
+
+threading.Thread(target=run_web, daemon=True).start()
+
 BOT_TOKEN = os.getenv("BOT_TOKEN")
+
+
+
+
 
 # ============ منهجية عباس RCSS V3 - 11 أكتوبر 2026 ============
 METHODOLOGY = """
